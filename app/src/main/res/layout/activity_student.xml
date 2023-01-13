@@ -247,6 +247,7 @@
                     android:orientation="vertical">
 
                     <ImageView
+                        android:id="@+id/chatBtn"
                         android:layout_width="50dp"
                         android:layout_height="60dp"
                         app:srcCompat="@drawable/exam" />
@@ -255,7 +256,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="center"
-                        android:text="Quiz"
+                        android:text="Chat"
                         android:textColor="@color/black" />
                 </LinearLayout>
 

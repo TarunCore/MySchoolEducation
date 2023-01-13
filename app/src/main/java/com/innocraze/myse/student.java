@@ -22,7 +22,7 @@ import com.google.firebase.database.ValueEventListener;
 public class student extends AppCompatActivity {
 
     private TextView stdNameTxt,classNameTxt,schoolNameTxt;
-    private ImageView seeHomeWork,seeMarks;
+    private ImageView seeHomeWork,seeMarks,chatBtn;
     SharedPreferences sp;
     private DatabaseReference classRef,schoolRef;
 
@@ -35,6 +35,7 @@ public class student extends AppCompatActivity {
         schoolNameTxt=findViewById(R.id.schoolNameTXT);
         seeHomeWork=findViewById(R.id.seeworkBtn);
         seeMarks=findViewById(R.id.seeMarkBtn);
+        chatBtn=findViewById(R.id.chatBtn);
 
         sp = getSharedPreferences("LogIN", Context.MODE_PRIVATE);
         String t1 = sp.getString("StdName","");
@@ -64,14 +65,43 @@ public class student extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(student.this,seeHomework.class);
-
                 intent.putExtra("ReceiveSchool",t3.toString());  //these are unique ids
                 intent.putExtra("ReceiveClass",t2.toString());
                 startActivity(intent);
             }
         });
-
+        seeMarks.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(student.this,seeMarks.class);
+                intent.putExtra("SID",t2.toString());
+                startActivity(intent);
+            }
+        });
+        chatBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(student.this,messaging.class);
+                intent.putExtra("SName",t1);
+                startActivity(intent);
+            }
+        });
         stdNameTxt.setText(t1);
+        stdNameTxt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                SharedPreferences.Editor editor = sp.edit();
+                editor.putString("sCode","");
+                editor.putString("cCode","");
+                String tmp = "";
+                editor.putString("StdName",tmp);
+                editor.putString("sID","");
+                Intent intent = new Intent(student.this,joinClass.class);
+
+                startActivity(intent);
+                finish();
+            }
+        });
 
 
     }

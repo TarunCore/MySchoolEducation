@@ -14,7 +14,7 @@ import com.google.firebase.auth.FirebaseUser;
 
 public class Welcome extends AppCompatActivity {
 
-    private Button createSchool,joinClassbtn;
+    private Button createSchool,joinClassbtn,logSchool;
     private FirebaseAuth mAuth;
     private FirebaseUser user;
     SharedPreferences sp;
@@ -24,6 +24,7 @@ public class Welcome extends AppCompatActivity {
         setContentView(R.layout.activity_welcome);
         mAuth = FirebaseAuth.getInstance();
         createSchool=findViewById(R.id.createSchool);
+        logSchool=findViewById(R.id.schoolLog);
         joinClassbtn=findViewById(R.id.joinClass);
         sp=getSharedPreferences("LogIN", Context.MODE_PRIVATE);
         createSchool.setOnClickListener(new View.OnClickListener() {
@@ -37,6 +38,13 @@ public class Welcome extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(Welcome.this, joinClass.class);
+                startActivity(intent);
+            }
+        });
+        logSchool.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Welcome.this, schoolLogin.class);
                 startActivity(intent);
             }
         });

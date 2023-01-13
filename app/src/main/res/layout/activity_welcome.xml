@@ -8,18 +8,16 @@
     tools:context=".Welcome"
     android:padding="20dp">
 
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
+        android:fontFamily="@font/epilogue_bold"
         android:text="Welcome"
-        android:textSize="34sp"
-        android:layout_marginTop="15dp"
-        android:layout_marginBottom="10dp"
         android:textColor="@color/black"
-        android:fontFamily="@font/epilogue_bold"/>
-
-
-
+        android:textSize="34sp" />
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

@@ -12,6 +12,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -35,6 +36,7 @@ public class schoolManage extends AppCompatActivity {
     public  ArrayList<String> ids;
     public String idToRef;
     private ImageButton addClass;
+    private ImageView logout;
     private EditText edtClass;
     private TextView lastClasstxt,nameSchool;
     private String lastClass;
@@ -50,6 +52,7 @@ public class schoolManage extends AppCompatActivity {
         addClass=findViewById(R.id.addClassBtn);
         edtClass=findViewById(R.id.edtClass);
         lastClasstxt=findViewById(R.id.lastClasstxt);
+        logout=findViewById(R.id.logoutBtn);
 
         listView = findViewById(R.id.ListviewClassList);
         namesList = new ArrayList<>();
@@ -120,6 +123,7 @@ public class schoolManage extends AppCompatActivity {
                     String tmp=lastClasstxt.getText().toString();
                     schoolRef.child(mAuth.getCurrentUser().getUid()).child("Class").child(tmp).setValue(edtClass.getText().toString());
                     classAddRef.child(schoolName.getText().toString()).child(tmp).child("ClassName").setValue(edtClass.getText().toString());
+                    edtClass.setText("");
                 }
             }
         });
@@ -136,5 +140,15 @@ public class schoolManage extends AppCompatActivity {
 
             }
         });
+        logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FirebaseAuth.getInstance().signOut();
+                Intent intent = new Intent(schoolManage.this,Welcome.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+
     }
 }

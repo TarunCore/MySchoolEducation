@@ -96,6 +96,7 @@ public class joinClass extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 String getSelected = spinnerStates2.getSelectedItem().toString();
+                int getSelectedPos = spinnerStates2.getSelectedItemPosition();
                 Toast.makeText(joinClass.this, getSelected, Toast.LENGTH_SHORT).show();
                 String sCode=edtSchoolCode.getText().toString();
                 String cCode=edtClassCode.getText().toString();
@@ -103,6 +104,7 @@ public class joinClass extends AppCompatActivity {
                 editor.putString("sCode",sCode);
                 editor.putString("cCode",cCode);
                 editor.putString("StdName",getSelected);
+                editor.putString("sID","S"+String.valueOf(getSelectedPos+1));
                 editor.commit();
                 Intent intent = new Intent(joinClass.this,student.class);
                 startActivity(intent);

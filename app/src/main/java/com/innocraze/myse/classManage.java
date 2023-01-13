@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ImageButton;
@@ -111,6 +112,18 @@ public class classManage extends AppCompatActivity {
                 Intent intent = new Intent(classManage.this, homework.class);
                 intent.putExtra("ReceiveSchool",receiverSchool);
                 intent.putExtra("ReceiveClass",receiverClass);
+                startActivity(intent);
+            }
+        });
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Intent intent = new Intent(classManage.this, putMarks.class);
+                //intent.putExtra("ReceiverId",ids.get(position));
+                //intent.putExtra("ReceiveClass",namesList.get(i));  //look after this line properly
+                intent.putExtra("Class",receiverClass);
+                intent.putExtra("SchoolID",receiverSchool);
+                intent.putExtra("StudentID","S"+String.valueOf(i+1));
                 startActivity(intent);
             }
         });

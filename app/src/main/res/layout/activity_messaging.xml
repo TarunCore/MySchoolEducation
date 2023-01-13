@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".messaging">
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_alignParentTop="true"
+        android:id="@+id/spaceS"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="5dp"
+        android:orientation="horizontal"
+        android:id="@+id/linearBottom"
+        android:paddingBottom="2dp">
+        <EditText
+            android:layout_width="0dp"
+            android:layout_height="46dp"
+            android:layout_weight="9"
+            android:hint="Enter the message"
+            android:background="@drawable/custom_input"
+            android:paddingStart="15dp"
+            android:paddingEnd="12dp"
+            android:padding="10dp"
+            android:id="@+id/edtMessage"/>
+
+        <ImageButton
+            android:id="@+id/btnSendMsg"
+            android:layout_width="0dp"
+            android:layout_height="46dp"
+            android:layout_marginBottom="7dp"
+            android:layout_weight="1.2"
+            android:layout_marginLeft="5dp"
+            android:src="@android:drawable/ic_menu_send" />
+    </LinearLayout>
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/MsgrecyclerView"
+        android:layout_above="@+id/linearBottom"
+        android:layout_below="@id/spaceS"/>
+
+</RelativeLayout>
