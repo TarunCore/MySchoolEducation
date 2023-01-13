@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">MySE</string>
+    <string-array name="states">
+        <item>Tamil Nadu</item>
+        <item>Karnataka</item>
+        <item>Telugana</item>
+        <item>Kerala</item>
+        <item>Andhra</item>
+    </string-array>
+</resources>

@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "724140760654",
+    "project_id": "myse-3f103",
+    "storage_bucket": "myse-3f103.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:724140760654:android:11bbd06d1798bcb9906d1f",
+        "android_client_info": {
+          "package_name": "com.innocraze.myse"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "724140760654-pr7aletpa08vql68s9g1f92f46i8lett.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAYLRwr-09BIJyNHVqL8T3aEP0Xb67obuU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "724140760654-pr7aletpa08vql68s9g1f92f46i8lett.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

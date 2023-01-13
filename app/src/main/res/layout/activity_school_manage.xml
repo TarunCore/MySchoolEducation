@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".schoolManage"
+    android:orientation="vertical"
+    android:padding="20dp">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Your School"
+        android:textSize="34sp"
+        android:layout_marginTop="15dp"
+        android:textColor="@color/black"
+        android:fontFamily="@font/epilogue_bold"
+        android:layout_marginBottom="10dp"/>
+
+    <TextView
+        android:id="@+id/idSchool"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="ID"
+        android:textColor="@color/black"
+        android:textSize="25sp" />
+    <TextView
+        android:id="@+id/nameSchool"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Name"
+        android:textColor="@color/black"
+        android:textSize="25sp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Total Class: 0"
+        android:textSize="25sp"
+        android:visibility="gone"
+        android:textColor="@color/black" />
+
+    <TextView
+        android:id="@+id/lastClasstxt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Total Class: 0"
+        android:textColor="@color/black"
+        android:visibility="gone"
+        android:textSize="25sp" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp">
+        <EditText
+            android:id="@+id/edtClass"
+            android:layout_width="wrap_content"
+            android:layout_height="55dp"
+            android:ems="10"
+            android:background="@drawable/custom_input"
+            android:inputType="textPersonName"
+            android:paddingStart="10dp"
+            android:hint="Add Class"
+            android:layout_weight="7.5"/>
+
+        <ImageButton
+            android:id="@+id/addClassBtn"
+            android:layout_width="0dp"
+            android:layout_height="55dp"
+            android:layout_weight="2.5"
+            android:background="@color/white"
+            app:srcCompat="@drawable/ic_add" />
+
+    </LinearLayout>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Classes"
+        android:fontFamily="@font/epilogue_medium"
+        android:textColor="@color/black"
+        android:textSize="20sp">
+    </TextView>
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/ListviewClassList"/>
+</LinearLayout>

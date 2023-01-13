@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".Welcome"
+    android:padding="20dp">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Welcome"
+        android:textSize="34sp"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="10dp"
+        android:textColor="@color/black"
+        android:fontFamily="@font/epilogue_bold"/>
+
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Teachers                                            "
+        android:textSize="20sp"/>
+
+
+    <Button
+        android:id="@+id/createSchool"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Create School Account" />
+
+
+
+    <Button
+        android:id="@+id/schoolLog"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Log In to School" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Student"
+        android:textSize="20sp"/>
+
+    <Button
+        android:id="@+id/joinClass"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Join Class" />
+
+</LinearLayout>
