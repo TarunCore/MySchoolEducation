@@ -7,7 +7,8 @@ https://drive.google.com/file/d/1NL6H4RNdKaKBUr_Qgl9Xkxog1uzwCptD/view?usp=share
 
 #Output
 ![Picsart_23-01-14_18-02-07-124](https://user-images.githubusercontent.com/112856864/212471743-90e745c5-9bd1-4fa1-9f50-d5a746b17828.jpg)
-![Picsart_23-01-14_18-02-04-705](https://user-images.githubusercontent.com/112856864/212471760-d573c391-88cf-4bbb-a214-c76e544d70c0.jpg)
+![Picsart_23-01-14_17-56-45-754](https://user-images.githubusercontent.com/112856864/212471795-044b2989-7a35-46a4-b650-27dad901cda2.jpg)
+
 
 ![Screenshot_2023-01-14-15-11-35-600_com innocraze myse](https://user-images.githubusercontent.com/112856864/212471061-260bd43c-72d1-4cb3-a941-621d7d7b2924.jpg)![Screenshot_2023-01-14-15-11-46-903_com innocraze myse](https://user-images.githubusercontent.com/112856864/212471077-e892855d-a3a0-49b7-a616-66c5e035fd88.jpg)
 
