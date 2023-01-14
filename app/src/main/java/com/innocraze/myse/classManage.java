@@ -32,7 +32,7 @@ public class classManage extends AppCompatActivity {
     private ListView listView;
     private EditText edtStudent;
     private TextView className,lastStd;
-    private ImageView homeworkBtn,circularBtn,studyBtn;
+    private ImageView homeworkBtn,circularBtn,studyBtn,shareBtn;
 
     private ArrayList<String> stdList;
     private ArrayAdapter mArrayAdapter;
@@ -50,7 +50,7 @@ public class classManage extends AppCompatActivity {
         className=findViewById(R.id.classNametxt);
         lastStd=findViewById(R.id.lastStdtxt);
         homeworkBtn=findViewById(R.id.btnHomeWork);
-        circularBtn=findViewById(R.id.btnCircular);
+        shareBtn=findViewById(R.id.btnShare);
         studyBtn=findViewById(R.id.btnStudyMat);
 
         listView = findViewById(R.id.ListviewStdList);
@@ -125,6 +125,18 @@ public class classManage extends AppCompatActivity {
                 intent.putExtra("SchoolID",receiverSchool);
                 intent.putExtra("StudentID","S"+String.valueOf(i+1));
                 startActivity(intent);
+            }
+        });
+
+        shareBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent shareIntent = new Intent();
+                shareIntent.setAction(Intent.ACTION_SEND);
+                shareIntent.putExtra(Intent.EXTRA_TEXT,receiverSchool+"\n"+receiverClass);
+                shareIntent.setType("text/plain");
+                shareIntent = Intent.createChooser(shareIntent,"Share via: ");
+                startActivity(shareIntent);
             }
         });
     }

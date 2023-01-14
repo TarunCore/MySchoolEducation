@@ -22,9 +22,10 @@ import com.google.firebase.database.ValueEventListener;
 public class student extends AppCompatActivity {
 
     private TextView stdNameTxt,classNameTxt,schoolNameTxt;
-    private ImageView seeHomeWork,seeMarks,chatBtn;
+    private ImageView seeHomeWork,seeMarks,chatBtn,seeMyReport;
     SharedPreferences sp;
     private DatabaseReference classRef,schoolRef;
+    private ImageView logout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +37,8 @@ public class student extends AppCompatActivity {
         seeHomeWork=findViewById(R.id.seeworkBtn);
         seeMarks=findViewById(R.id.seeMarkBtn);
         chatBtn=findViewById(R.id.chatBtn);
+        seeMyReport=findViewById(R.id.seeMyReport);
+        logout=findViewById(R.id.logoutBtnStd);
 
         sp = getSharedPreferences("LogIN", Context.MODE_PRIVATE);
         String t1 = sp.getString("StdName","");
@@ -44,15 +47,15 @@ public class student extends AppCompatActivity {
 //        Toast.makeText(student.this, t2, Toast.LENGTH_SHORT).show();
 //        Toast.makeText(student.this, t3, Toast.LENGTH_SHORT).show();
 
-        classRef= FirebaseDatabase.getInstance().getReference().child(t3).child(t2);
+        classRef= FirebaseDatabase.getInstance().getReference().child("class").child(t3);
 
         classRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-//                String sname=snapshot.child("SchoolName").getValue().toString();
-//                schoolNameTxt.setText(sname); // school name should be added
-//                String cname=snapshot.child("ClassName").getValue().toString();
-//                classNameTxt.setText(cname);
+                String sname=snapshot.child("SchoolName").getValue().toString();
+                schoolNameTxt.setText(sname); // school name should be added
+                String cname=snapshot.child(t2).child("ClassName").getValue().toString();
+                classNameTxt.setText(cname);
             }
 
             @Override
@@ -87,7 +90,8 @@ public class student extends AppCompatActivity {
             }
         });
         stdNameTxt.setText(t1);
-        stdNameTxt.setOnClickListener(new View.OnClickListener() {
+
+        logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 SharedPreferences.Editor editor = sp.edit();
@@ -96,6 +100,7 @@ public class student extends AppCompatActivity {
                 String tmp = "";
                 editor.putString("StdName",tmp);
                 editor.putString("sID","");
+                editor.commit();
                 Intent intent = new Intent(student.this,joinClass.class);
 
                 startActivity(intent);
@@ -103,6 +108,15 @@ public class student extends AppCompatActivity {
             }
         });
 
+        seeMyReport.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(student.this,myReport.class);
+                intent.putExtra("SName",t1);
+                intent.putExtra("ClassName",classNameTxt.getText().toString());
+                startActivity(intent);
+            }
+        });
 
     }
 }

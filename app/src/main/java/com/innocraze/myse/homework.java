@@ -40,6 +40,6 @@ public class homework extends AppCompatActivity {
 
     }
     private String getDate(){
-        return new SimpleDateFormat("ddMMyyyy", Locale.getDefault()).format(new Date());
+        return new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(new Date());
     }
 }

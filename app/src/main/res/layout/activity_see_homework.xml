@@ -7,6 +7,15 @@
     android:orientation="vertical"
     android:padding="20dp"
     tools:context=".seeHomework">
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/epilogue_bold"
+        android:text="Home Works"
+        android:textColor="@color/black"
+        android:textSize="34sp"
+        android:layout_marginBottom="5dp"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycleWorks"

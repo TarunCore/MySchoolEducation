@@ -3,13 +3,16 @@ package com.innocraze.myse;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
@@ -32,6 +35,7 @@ public class messaging extends AppCompatActivity {
     private RecyclerView mRecyclerView;
     private EditText msg;
     private ImageButton sendBtn;
+    private Toolbar mToolBar;
     SharedPreferences sp;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +43,12 @@ public class messaging extends AppCompatActivity {
         setContentView(R.layout.activity_messaging);
         msg=findViewById(R.id.edtMessage);
         sendBtn=findViewById(R.id.btnSendMsg);
+
+        getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
+        mToolBar=findViewById(R.id.myToolbar);
+        setSupportActionBar(mToolBar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setTitle("Class Chat");
 
         sp = getSharedPreferences("LogIN", Context.MODE_PRIVATE);
         String t1 = sp.getString("StdName","");
@@ -93,5 +103,15 @@ public class messaging extends AppCompatActivity {
             }
         });
 
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        int id = item.getItemId();
+
+        if (id==android.R.id.home){
+            this.finish();
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

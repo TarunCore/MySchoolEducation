@@ -13,6 +13,13 @@
         android:theme="@style/Theme.MySE"
         tools:targetApi="31">
         <activity
+            android:name=".myReport"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".messaging"
             android:exported="false">
             <meta-data
