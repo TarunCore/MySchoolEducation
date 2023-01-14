@@ -1,6 +1,7 @@
 # MySchoolEducation
-Education Portal for Govt. School Students
-A fully implemented app made with Android Studio
+Education Portal for Govt. School Students.
+A fully implemented app made with Android Studio.
+
 Please do download and use the app from below Drive URL
 https://drive.google.com/file/d/1NL6H4RNdKaKBUr_Qgl9Xkxog1uzwCptD/view?usp=share_link
 
