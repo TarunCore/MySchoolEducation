@@ -22,7 +22,6 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.messaging.FirebaseMessaging;
 
 import java.util.ArrayList;
 
@@ -107,9 +106,6 @@ public class joinClass extends AppCompatActivity {
                 editor.putString("StdName",getSelected);
                 editor.putString("sID","S"+String.valueOf(getSelectedPos+1));
                 editor.commit();
-                String subs = sCode+">"+cCode;
-                Toast.makeText(joinClass.this,subs,Toast.LENGTH_SHORT).show();
-                FirebaseMessaging.getInstance().subscribeToTopic(subs);
                 Intent intent = new Intent(joinClass.this,student.class);
                 startActivity(intent);
 
