@@ -11,6 +11,7 @@ import android.widget.Button;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.messaging.FirebaseMessaging;
 
 public class Welcome extends AppCompatActivity {
 
@@ -27,6 +28,7 @@ public class Welcome extends AppCompatActivity {
         logSchool=findViewById(R.id.schoolLog);
         joinClassbtn=findViewById(R.id.joinClass);
         sp=getSharedPreferences("LogIN", Context.MODE_PRIVATE);
+
         createSchool.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

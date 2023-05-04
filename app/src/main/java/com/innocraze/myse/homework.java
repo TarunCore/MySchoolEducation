@@ -7,9 +7,11 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.messaging.FirebaseMessaging;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -31,12 +33,18 @@ public class homework extends AppCompatActivity {
         sendIT=findViewById(R.id.sendworkBtn);
         givenWork=findViewById(R.id.edtHomeWork);
         classRef= FirebaseDatabase.getInstance().getReference().child("class").child(receiverSchool).child(receiverClass);
+        //FirebaseMessaging.getInstance().subscribeToTopic("all");
         sendIT.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 classRef.child("HomeWorks").child(getDate().toString()).setValue(getDate().toString()+">"+givenWork.getText().toString());
+                //Toast.makeText(homework.this,receiverSchool+">"+receiverClass,Toast.LENGTH_SHORT).show();
+                FcmNotificationsSender notificationsSender = new FcmNotificationsSender("/topics/"+receiverSchool+">"+receiverClass,"Do",givenWork.getText().toString(),getApplicationContext(),homework.this);
+                notificationsSender.SendNotifications();
             }
         });
+
+
 
     }
     private String getDate(){
