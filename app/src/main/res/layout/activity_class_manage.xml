@@ -133,7 +133,7 @@
                     android:orientation="vertical">
 
                     <ImageView
-                        android:id="@+id/btnStudyMat"
+                        android:id="@+id/btnQuizImg"
                         android:layout_width="55dp"
                         android:layout_height="60dp"
                         app:srcCompat="@drawable/book" />
@@ -142,7 +142,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="center"
-                        android:text="Study materials"
+                        android:text="Quiz"
                         android:textColor="@color/black" />
                 </LinearLayout>
 
