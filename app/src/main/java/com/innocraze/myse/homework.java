@@ -39,8 +39,8 @@ public class homework extends AppCompatActivity {
             public void onClick(View view) {
                 classRef.child("HomeWorks").child(getDate().toString()).setValue(getDate().toString()+">"+givenWork.getText().toString());
                 //Toast.makeText(homework.this,receiverSchool+">"+receiverClass,Toast.LENGTH_SHORT).show();
-                FcmNotificationsSender notificationsSender = new FcmNotificationsSender("/topics/"+receiverSchool+">"+receiverClass,"Do",givenWork.getText().toString(),getApplicationContext(),homework.this);
-                notificationsSender.SendNotifications();
+                // uncheck this FcmNotificationsSender notificationsSender = new FcmNotificationsSender("/topics/"+receiverSchool+">"+receiverClass,"Do",givenWork.getText().toString(),getApplicationContext(),homework.this);
+                //uncheck this notificationsSender.SendNotifications();
             }
         });
 
