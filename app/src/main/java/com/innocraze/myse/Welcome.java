@@ -66,8 +66,9 @@ public class Welcome extends AppCompatActivity {
         else{
             String toCheck = sp.getString("StdName","");
             if (!toCheck.equals("")){
-                Intent intent = new Intent(Welcome.this,student.class);
+                Intent intent = new Intent(Welcome.this,StudentMain.class);
                 startActivity(intent);
+                finish();
             }
         }
 
