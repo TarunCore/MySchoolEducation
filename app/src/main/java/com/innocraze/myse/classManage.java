@@ -32,9 +32,10 @@ public class classManage extends AppCompatActivity {
     private ListView listView;
     private EditText edtStudent;
     private TextView className,lastStd;
-    private ImageView homeworkBtn,circularBtn,studyBtn,shareBtn;
+    private ImageView homeworkBtn,circularBtn,studyBtn,shareBtn,quizButton;
 
     private ArrayList<String> stdList;
+    private ArrayList<String> stdCodeList;
     private ArrayAdapter mArrayAdapter;
     private FirebaseAuth mAuth;
     private DatabaseReference classRef,schoolRef,stdListRef;
@@ -51,10 +52,11 @@ public class classManage extends AppCompatActivity {
         lastStd=findViewById(R.id.lastStdtxt);
         homeworkBtn=findViewById(R.id.btnHomeWork);
         shareBtn=findViewById(R.id.btnShare);
-        studyBtn=findViewById(R.id.btnStudyMat);
+        quizButton=findViewById(R.id.btnQuizImg);
 
         listView = findViewById(R.id.ListviewStdList);
         stdList = new ArrayList<>();
+        stdCodeList = new ArrayList<>();
         mArrayAdapter = new ArrayAdapter(classManage.this,android.R.layout.simple_list_item_1,stdList); //see this line
         listView.setAdapter(mArrayAdapter);
         className.setText(receiverClass);
@@ -65,8 +67,10 @@ public class classManage extends AppCompatActivity {
         stdListRef.addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+                    String key=snapshot.getKey();
                     String val=snapshot.getValue(String.class);
                     stdList.add(val);
+                    stdCodeList.add(key);
                     lastNameOfStd = "S"+String.valueOf(stdList.size()+1);
                     lastStd.setText(lastNameOfStd);
                     mArrayAdapter.notifyDataSetChanged();
@@ -103,6 +107,8 @@ public class classManage extends AppCompatActivity {
                     String tmp=lastStd.getText().toString();
                     classRef.child("StudentList").child(tmp).setValue(edtStudent.getText().toString());
                     classRef.child("Student").child(tmp).child("Name").setValue(edtStudent.getText().toString());
+                    classRef.child("Student").child(tmp).child("Report").setValue("No Remarks");
+                    edtStudent.setText("");
                 }
             }
         });
@@ -123,7 +129,8 @@ public class classManage extends AppCompatActivity {
                 //intent.putExtra("ReceiveClass",namesList.get(i));  //look after this line properly
                 intent.putExtra("Class",receiverClass);
                 intent.putExtra("SchoolID",receiverSchool);
-                intent.putExtra("StudentID","S"+String.valueOf(i+1));
+//                intent.putExtra("StudentID","S"+String.valueOf(i+1));
+                intent.putExtra("StudentID", stdCodeList.get(i));
                 startActivity(intent);
             }
         });
@@ -137,6 +144,15 @@ public class classManage extends AppCompatActivity {
                 shareIntent.setType("text/plain");
                 shareIntent = Intent.createChooser(shareIntent,"Share via: ");
                 startActivity(shareIntent);
+            }
+        });
+
+        quizButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent quizIntent = new Intent();
+                intent.putExtra("Class",receiverClass);
+                intent.putExtra("SchoolID",receiverSchool);
             }
         });
     }
