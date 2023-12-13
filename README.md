@@ -2,5 +2,5 @@
 Education Portal for Govt. School Students.
 A fully implemented app made with Android Studio.
 
-Link:
-https://drive.google.com/file/d/1NL6H4RNdKaKBUr_Qgl9Xkxog1uzwCptD/view?usp=share_link
+Google Play Link:
+https://play.google.com/store/apps/details?id=com.innocraze.myse
