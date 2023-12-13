@@ -64,8 +64,8 @@ public class seeHomework extends AppCompatActivity {
             @Override
             public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
                 String val=snapshot.getValue(String.class);
-                whatToname.add(0,val);
-                homeList.add(0,val);
+                whatToname.add(val);
+                homeList.add(val);
                 mArrayAdapter.notifyDataSetChanged();
                 mWorkAdapter.notifyItemChanged(whatToname.size()-1);
             }

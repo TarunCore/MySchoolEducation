@@ -35,8 +35,8 @@ public class homework extends AppCompatActivity {
     private EditText givenWork;
 
     private RecyclerView teacherSide;
-    private ArrayList<String> whatToname;
-    private MyAdapter mWorkAdapter;
+    private ArrayList<String> whatToname, keyOfHomeWorks;
+    private SetHomeWorkAdapter mWorkAdapter;
     private ArrayAdapter mArrayAdapter;
 
     @Override
@@ -48,14 +48,15 @@ public class homework extends AppCompatActivity {
         receiverSchool = intent.getStringExtra("ReceiveSchool");
         sendIT=findViewById(R.id.sendworkBtn);
         givenWork=findViewById(R.id.edtHomeWork);
-        classRef= FirebaseDatabase.getInstance().getReference().child("class").child(receiverSchool).child(receiverClass);
+        classRef= FirebaseDatabase.getInstance().getReference().child("class").child(receiverSchool).child(receiverClass).child("HomeWorks");
         homeWorkRef= FirebaseDatabase.getInstance().getReference().child("class").child(receiverSchool).child(receiverClass).child("HomeWorks");
         //FirebaseMessaging.getInstance().subscribeToTopic("all");
 
         teacherSide = findViewById(R.id.homeWorkTeacherSide);
         teacherSide.setLayoutManager(new LinearLayoutManager(homework.this));
         whatToname = new ArrayList<>();
-        mWorkAdapter= new MyAdapter(homework.this,whatToname);
+        keyOfHomeWorks = new ArrayList<>();
+        mWorkAdapter= new SetHomeWorkAdapter(homework.this,whatToname,classRef, keyOfHomeWorks);
         teacherSide.setAdapter(mWorkAdapter);
 
         sendIT.setOnClickListener(new View.OnClickListener() {
@@ -64,11 +65,13 @@ public class homework extends AppCompatActivity {
                 if(givenWork.getText().toString().equals("")){
                     Toast.makeText(homework.this,"Input is empty",Toast.LENGTH_LONG).show();
                 }else{
-                    classRef.child("HomeWorks").child(getDate().toString()).setValue(getDate().toString()+">"+givenWork.getText().toString());
+                    String uploadId = classRef.push().getKey();
+                    classRef.child(uploadId).setValue(getDate().toString()+">"+givenWork.getText().toString());
                     //Toast.makeText(homework.this,receiverSchool+">"+receiverClass,Toast.LENGTH_SHORT).show();
                     // uncheck this FcmNotificationsSender notificationsSender = new FcmNotificationsSender("/topics/"+receiverSchool+">"+receiverClass,"Do",givenWork.getText().toString(),getApplicationContext(),homework.this);
                     //uncheck this notificationsSender.SendNotifications();
                     Toast.makeText(homework.this,"Homework has been sent!",Toast.LENGTH_SHORT).show();
+
                 }
             }
         });
@@ -77,8 +80,10 @@ public class homework extends AppCompatActivity {
             @Override
             public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
                 String val=snapshot.getValue().toString();
-                whatToname.add(0,val);
+                whatToname.add(val);
+                keyOfHomeWorks.add(snapshot.getKey());
                 mWorkAdapter.notifyItemChanged(whatToname.size()-1);
+
             }
 
             @Override
