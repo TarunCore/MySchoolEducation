@@ -15,29 +15,40 @@
         android:layout_marginTop="15dp"
         android:layout_marginBottom="10dp"
         android:fontFamily="@font/epilogue_bold"
-        android:text="Class"
+        android:text="Home Work"
         android:textColor="@color/black"
         android:textSize="34sp" />
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
-        android:fontFamily="@font/epilogue_bold"
-        android:text="Write homework below"
-        android:textColor="@color/black"
-        android:textSize="24sp" />
+
     <EditText
         android:id="@+id/edtHomeWork"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
         android:gravity="start|top"
+        android:hint="Home Work"
         android:inputType="textMultiLine" />
 
     <Button
         android:id="@+id/sendworkBtn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Send HomeWork" />
+        android:background="@drawable/btn_ripple"
+        android:textColor="@color/white"
+        android:text="Send HomeWork"
+        android:layout_marginBottom="20dp"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:fontFamily="@font/epilogue_bold"
+        android:text="History"
+        android:textColor="@color/black"
+        android:textSize="25sp" />
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/homeWorkTeacherSide"
+        android:visibility="visible"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 </LinearLayout>

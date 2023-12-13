@@ -3,6 +3,7 @@ package com.innocraze.myse;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -36,7 +37,7 @@ public class schoolManage extends AppCompatActivity {
     public  ArrayList<String> ids;
     public String idToRef;
     private ImageButton addClass;
-    private ImageView logout;
+    private ImageView logout,announceBtn,seeAnnounceBtn;
     private EditText edtClass;
     private TextView lastClasstxt,nameSchool;
     private String lastClass;
@@ -53,7 +54,8 @@ public class schoolManage extends AppCompatActivity {
         edtClass=findViewById(R.id.edtClass);
         lastClasstxt=findViewById(R.id.lastClasstxt);
         logout=findViewById(R.id.logoutBtn);
-
+        announceBtn=findViewById(R.id.announceBtn);
+        seeAnnounceBtn=findViewById(R.id.seeAnnounceBtn);
         listView = findViewById(R.id.ListviewClassList);
         namesList = new ArrayList<>();
         ids = new ArrayList<>();
@@ -61,7 +63,6 @@ public class schoolManage extends AppCompatActivity {
         listView.setAdapter(mArrayAdapter);
         schoolRef= FirebaseDatabase.getInstance().getReference().child("school");
         classAddRef= FirebaseDatabase.getInstance().getReference().child("class");
-
         //school id is retrieved
         schoolRef.addValueEventListener(new ValueEventListener() {
             @Override
@@ -69,7 +70,7 @@ public class schoolManage extends AppCompatActivity {
                 idToRef = snapshot.child(mAuth.getCurrentUser().getUid()).child("Id").getValue().toString();
                 schoolName.setText(idToRef);
                 String val = snapshot.child(mAuth.getCurrentUser().getUid()).child("Name").getValue().toString();
-                schoolACTName.setText(val);
+                schoolACTName.setText(val.toUpperCase());
             }
 
             @Override
@@ -149,6 +150,21 @@ public class schoolManage extends AppCompatActivity {
                 finish();
             }
         });
-
+        announceBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(schoolManage.this,send_announce.class);
+                intent.putExtra("ReceiveSchool",schoolName.getText().toString());
+                startActivity(intent);
+            }
+        });
+        seeAnnounceBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(schoolManage.this,seeAnnounce.class);
+                intent.putExtra("ReceiveSchool",schoolName.getText().toString());
+                startActivity(intent);
+            }
+        });
     }
 }

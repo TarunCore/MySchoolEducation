@@ -6,90 +6,101 @@
     android:layout_height="match_parent"
     tools:context=".student"
     android:orientation="vertical">
-   <RelativeLayout
-       android:layout_width="match_parent"
-       android:layout_height="wrap_content">
-       <ImageView
-           android:id="@+id/imageView2"
-           android:layout_width="match_parent"
-           android:layout_height="wrap_content"
-           android:adjustViewBounds="true"
-           app:layout_constraintEnd_toEndOf="parent"
-           app:layout_constraintStart_toStartOf="parent"
-           app:layout_constraintTop_toTopOf="parent"
-           app:srcCompat="@drawable/blue_bg_crop2" />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/blue_bg_crop2" />
 
-       <LinearLayout
-           android:id="@+id/linR"
-           android:layout_width="match_parent"
-           android:layout_height="wrap_content"
-           android:layout_alignParentTop="true"
-           android:orientation="horizontal"
-           android:padding="20dp">
+        <LinearLayout
+            android:id="@+id/linR"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:orientation="horizontal"
+            android:padding="20dp">
 
-           <LinearLayout
-               android:layout_width="wrap_content"
-               android:layout_height="wrap_content"
-               android:orientation="vertical">
-               <TextView
-                   android:id="@+id/textView2"
-                   android:layout_width="wrap_content"
-                   android:layout_height="wrap_content"
-                   android:layout_marginBottom="12dp"
-                   android:fontFamily="@font/epilogue_bold"
-                   android:text="Dash Board           "
-                   android:textColor="@color/white"
-                   android:textSize="34sp"
-                   android:textStyle="bold" />
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="12dp"
+                    android:fontFamily="@font/epilogue_bold"
+                    android:text="Your stuff                    "
+                    android:textColor="@color/white"
+                    android:textSize="34sp"
+                    android:textStyle="bold" />
 
-               <TextView
-                   android:id="@+id/stdNameTXT"
-                   android:layout_width="wrap_content"
-                   android:layout_height="wrap_content"
-                   android:layout_below="@id/textView2"
-                   android:text="Yeshwant Raj"
-                   android:textColor="@color/white"
-                   android:textSize="16sp" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <ImageView
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:src="@drawable/young">
 
-               <TextView
-                   android:id="@+id/classNameTXT"
-                   android:layout_width="wrap_content"
-                   android:layout_height="wrap_content"
-                   android:layout_below="@id/stdNameTXT"
-                   android:layout_marginTop="3dp"
-                   android:text="Class 11"
-                   android:textColor="@color/white"
-                   android:textSize="16sp" />
+                    </ImageView>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginLeft="7dp">
+                        <TextView
+                            android:id="@+id/stdNameTXT"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/textView2"
+                            android:text="Yeshwant Raj"
+                            android:textColor="@color/white"
+                            android:textSize="22sp"
+                            android:fontFamily="@font/epilogue_medium"/>
 
-               <TextView
-                   android:id="@+id/schoolNameTXT"
-                   android:layout_width="wrap_content"
-                   android:layout_height="wrap_content"
-                   android:layout_below="@id/classNameTXT"
-                   android:layout_marginTop="3dp"
-                   android:text="Higher Sr. School, Vellore"
-                   android:textColor="@color/white"
-                   android:textSize="16sp" />
-           </LinearLayout>
-           <ImageView
-               android:id="@+id/logoutBtnStd"
-               android:layout_width="match_parent"
-               android:layout_height="wrap_content"
-               android:layout_marginTop="60dp"
-               android:src="@drawable/ic_logout">
-           </ImageView>
+                        <TextView
+                            android:id="@+id/classNameTXT"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/stdNameTXT"
+                            android:layout_marginTop="3dp"
+                            android:text="Class"
+                            android:textColor="@color/white"
+                            android:textSize="15sp" />
 
-       </LinearLayout>
-       <TextView
-           android:layout_width="wrap_content"
-           android:layout_height="wrap_content"
-           android:text="Academics"
-           android:textColor="#000000"
-           android:textSize="22sp"
-           android:layout_below="@id/linR"
-           android:layout_marginTop="95dp"
-           android:layout_marginLeft="20dp"/>
-   </RelativeLayout>
+                        <TextView
+                            android:id="@+id/schoolNameTXT"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/classNameTXT"
+                            android:layout_marginTop="3dp"
+                            android:text="PUPS TVK"
+                            android:textColor="@color/white"
+                            android:textSize="15sp" />
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+
+
+        </LinearLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Academics"
+            android:textColor="#000000"
+            android:textSize="22sp"
+            android:layout_below="@id/linR"
+            android:layout_marginTop="95dp"
+            android:layout_marginLeft="20dp"/>
+    </RelativeLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -129,8 +140,8 @@
 
                         <ImageView
                             android:id="@+id/seeworkBtn"
-                            android:layout_width="50dp"
-                            android:layout_height="60dp"
+                            android:layout_width="45dp"
+                            android:layout_height="52dp"
                             android:background="?android:attr/selectableItemBackgroundBorderless"
                             app:srcCompat="@drawable/homework" />
 
@@ -225,6 +236,27 @@
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:gravity="center"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:id="@+id/seeAnnounceBtn"
+                            android:layout_width="50dp"
+                            android:layout_height="60dp"
+                            android:background="?android:attr/selectableItemBackgroundBorderless"
+                            app:srcCompat="@drawable/announce" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="Announcement"
+                            android:textColor="@color/black" />
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center"
                         android:visibility="invisible"
                         android:orientation="vertical">
 
@@ -241,26 +273,7 @@
                             android:textColor="@color/black" />
                     </LinearLayout>
 
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:gravity="center"
-                        android:visibility="invisible"
-                        android:orientation="vertical">
 
-                        <ImageView
-                            android:layout_width="50dp"
-                            android:layout_height="50dp"
-                            app:srcCompat="@drawable/mark" />
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:gravity="center"
-                            android:text="Marks"
-                            android:textColor="@color/black" />
-                    </LinearLayout>
 
 
                 </LinearLayout>

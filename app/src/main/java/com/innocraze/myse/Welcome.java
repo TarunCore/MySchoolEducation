@@ -1,6 +1,7 @@
 package com.innocraze.myse;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 
 import android.content.Context;
 import android.content.Intent;
@@ -28,7 +29,6 @@ public class Welcome extends AppCompatActivity {
         logSchool=findViewById(R.id.schoolLog);
         joinClassbtn=findViewById(R.id.joinClass);
         sp=getSharedPreferences("LogIN", Context.MODE_PRIVATE);
-
         createSchool.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

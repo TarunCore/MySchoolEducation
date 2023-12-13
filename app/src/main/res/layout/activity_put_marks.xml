@@ -7,91 +7,106 @@
     tools:context=".putMarks"
     android:padding="20dp"
     android:orientation="vertical">
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Add Marks"
-        android:textSize="34sp"
-        android:layout_marginTop="15dp"
-        android:textColor="@color/black"
-        android:fontFamily="@font/epilogue_bold"
-        android:layout_marginBottom="20dp"/>
 
-    <EditText
-        android:id="@+id/edtExamName"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="55dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:hint="Exam Name"
-        android:paddingStart="15dp"
-        android:layout_marginBottom="10dp"
-        android:background="@drawable/custom_input"/>
-    <EditText
-        android:id="@+id/edtMark"
-        android:layout_width="match_parent"
-        android:layout_height="55dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:hint="Mark's Scored'"
-        android:paddingStart="15dp"
-        android:layout_marginBottom="10dp"
-        android:background="@drawable/custom_input"/>
-    <EditText
-        android:id="@+id/edtTotal"
-        android:layout_width="match_parent"
-        android:layout_height="55dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:hint="Total Mark"
-        android:paddingStart="15dp"
-        android:layout_marginBottom="10dp"
-        android:background="@drawable/custom_input"/>
-    <EditText
-        android:id="@+id/edtRemark"
-        android:layout_width="match_parent"
-        android:layout_height="55dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:hint="Remarks(optional)"
-        android:paddingStart="15dp"
-        android:layout_marginBottom="10dp"
-        android:background="@drawable/custom_input"/>
+        android:layout_height="match_parent">
 
-    <Button
-        android:id="@+id/addMarkBtn"
-        android:background="@drawable/btn_bg"
-        android:layout_width="match_parent"
-        android:textColor="@color/white"
-        android:layout_height="wrap_content"
-        android:text="Add" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Add Marks"
+                android:textSize="30sp"
+                android:layout_marginTop="15dp"
+                android:textColor="@color/black"
+                android:fontFamily="@font/epilogue_bold"
+                android:layout_marginBottom="20dp"/>
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Marks"
-        android:textSize="34sp"
-        android:layout_marginTop="15dp"
-        android:textColor="@color/black"
-        android:fontFamily="@font/epilogue_bold"
-        android:layout_marginBottom="20dp"/>
-    <EditText
-        android:id="@+id/edtReport"
-        android:layout_width="match_parent"
-        android:layout_height="55dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:hint="Enter the report"
-        android:paddingStart="15dp"
-        android:layout_marginBottom="10dp"
-        android:background="@drawable/custom_input"/>
+            <EditText
+                android:id="@+id/edtExamName"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:hint="Exam Name"
+                android:paddingStart="15dp"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/custom_input"/>
 
-    <Button
-        android:id="@+id/addReport"
-        android:background="@drawable/btn_bg"
-        android:layout_width="match_parent"
-        android:textColor="@color/white"
-        android:layout_height="wrap_content"
-        android:text="SEND" />
+            <EditText
+                android:id="@+id/edtMark"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/custom_input"
+                android:ems="10"
+                android:hint="Mark's Scored'"
+                android:inputType="number"
+                android:paddingStart="15dp" />
+
+            <EditText
+                android:id="@+id/edtTotal"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/custom_input"
+                android:ems="10"
+                android:hint="Total Mark"
+                android:inputType="number"
+                android:paddingStart="15dp" />
+            <EditText
+                android:id="@+id/edtRemark"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:hint="Remarks(optional)"
+                android:paddingStart="15dp"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/custom_input"/>
+
+            <Button
+                android:id="@+id/addMarkBtn"
+                android:background="@drawable/btn_ripple"
+                android:layout_width="match_parent"
+                android:textColor="@color/white"
+                android:layout_height="wrap_content"
+                android:text="Add" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Enter Student Report"
+                android:textSize="30sp"
+                android:layout_marginTop="15dp"
+                android:textColor="@color/black"
+                android:fontFamily="@font/epilogue_bold"
+                android:layout_marginBottom="20dp"/>
+            <EditText
+                android:id="@+id/edtReport"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:hint="Enter the report"
+                android:paddingStart="15dp"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/custom_input"/>
+
+            <Button
+                android:id="@+id/addReport"
+                android:background="@drawable/btn_ripple"
+                android:layout_width="match_parent"
+                android:textColor="@color/white"
+                android:layout_height="wrap_content"
+                android:text="SEND" />
+        </LinearLayout>
+    </ScrollView>
+
+
 
 </LinearLayout>

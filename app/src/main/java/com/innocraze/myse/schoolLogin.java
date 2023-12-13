@@ -37,7 +37,7 @@ public class schoolLogin extends AppCompatActivity {
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String email = edtEmail.getText().toString();
+                String email = edtEmail.getText().toString().trim();
                 String password = edtPassword.getText().toString();
 
                 if(email.equals("")|| password.equals(""))

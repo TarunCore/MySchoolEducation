@@ -45,15 +45,18 @@ public class putMarks extends AppCompatActivity {
                 else {
                     if(edtRemarks.getText().toString().equals("")){
                         String toPut = edtExam.getText().toString() + ">" + edtMark.getText().toString() + ">" + edtTotal.getText().toString();
-                        Toast.makeText(putMarks.this, toPut, Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(putMarks.this, toPut, Toast.LENGTH_SHORT).show();
                         classRef.child("Marks").child(edtExam.getText().toString()).setValue(toPut);
+                        Toast.makeText(putMarks.this, "Successful", Toast.LENGTH_SHORT).show();
                     }
                     else{
                         String toPut = edtExam.getText().toString() + ">" + edtMark.getText().toString() + ">" + edtTotal.getText().toString()+ ">" + edtRemarks.getText().toString();
-                        Toast.makeText(putMarks.this, toPut, Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(putMarks.this, toPut, Toast.LENGTH_SHORT).show();
                         classRef.child("Marks").child(edtExam.getText().toString()).setValue(toPut);
-                    }
+                        Toast.makeText(putMarks.this, "Successful", Toast.LENGTH_SHORT).show();
 
+                    }
+                    edtExam.setText("");edtMark.setText("");edtTotal.setText("");edtRemarks.setText("");
                 }
             }
         });
@@ -65,6 +68,7 @@ public class putMarks extends AppCompatActivity {
                 }
                 else{
                     classRef.child("Report").setValue(edtReport.getText().toString());
+                    Toast.makeText(putMarks.this, "Report update Successful", Toast.LENGTH_SHORT).show();
                 }
             }
         });

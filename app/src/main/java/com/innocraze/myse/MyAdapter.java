@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -39,12 +40,17 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
+        //Toast.makeText(this.context,works.get(0),Toast.LENGTH_SHORT).show();
         String[] s=works.get(position).split(">",2);
         if(getDate().toString().equals(s[0])){
+            holder.date.setText("Today: "+s[0]);
+            holder.work.setText(s[1]);
             holder.green.setVisibility(View.VISIBLE);
+        }else{
+            holder.date.setText(s[0]);
+            holder.work.setText(s[1]);
         }
-        holder.date.setText(s[0]);
-        holder.work.setText(s[1]);
+
     }
 
     @Override
